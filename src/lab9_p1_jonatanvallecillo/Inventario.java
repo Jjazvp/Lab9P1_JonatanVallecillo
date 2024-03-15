@@ -84,16 +84,16 @@ public class Inventario {
             }else if(i == 3){
                 System.out.println(i+". Diamante: "+diamante);
             }else{
-                if(i == (tools.size()+2)){
-                    Herramientas herram = new Herramientas();
-                    herram = tools.get(0);
-                    System.out.println((i-1)+". "+herram.getNombre()+": "+herram.getMaterial());
-                }else if(i == (tools.size()+4)){
-                    System.out.println(i+". Objeto equipado: "+objeto_actual);
-                }else{
+                if(i >= 4 && i < tools.size() + 3){
                     Herramientas herram = new Herramientas();
                     herram = tools.get(cont);
                     cont ++;
+                    System.out.println(i+". "+herram.getNombre()+": "+herram.getMaterial());
+                }else if(i == (tools.size() + 4)){
+                    System.out.println(i+". Objeto equipado: "+objeto_actual);
+                }else{
+                    Herramientas herram = new Herramientas();
+                    herram = tools.get(0);
                     System.out.println(i+". "+herram.getNombre()+": "+herram.getMaterial());
                 }
             }
@@ -109,26 +109,30 @@ public class Inventario {
         int cont = tools.size() + 4;
         int val = 1;
         while(val == 1){
-            System.out.println("\nSeleccione el objeto: ");
+            System.out.print("\nSeleccione el objeto: ");
                 int objeto = leer.nextInt();
                 herram = tools.get(objeto);
-                if(objeto > 0 && objeto < tools.size() && herram.getNombre() != "Mano"){
+                if(objeto > 3 && objeto < tools.size() + 2){
+                    objeto -= 3;
                     tools.remove(objeto);
                     val = 0;
-                }else if(objeto > tools.size()+4){
-                    if(objeto == (cont - 3)){
+                }else if(objeto >= 0 && objeto < 4){
+                    if(objeto == 0){
+                        madera = 0;
+                        val = 0;
+                    }else if(objeto == 1){
                         piedra = 0;
                         val = 0;
-                    }else if(objeto == (cont - 2)){
+                    }else if(objeto == 2){
                         hierro = 0;
                         val = 0;
-                    }else if(objeto == (cont - 1)){
+                    }else if(objeto == 3){
                         diamante = 0;
                         val = 0;
                     }
                 }else{
                     System.out.println("ERROR. Intente de nuevo");
-                }
+                }   
         }
     }
     
@@ -175,7 +179,7 @@ public class Inventario {
                     }
                 }else{
                     herram = tools.get(seleccion - 4);
-                objeto_actual = herram.getNombre()+herram.getMaterial();
+                    objeto_actual = herram.getNombre()+herram.getMaterial();
                 }
                 
                 break;

@@ -93,6 +93,8 @@ public class Minecraft {
                                     if(inventario.getMadera() >= 5){
                                         Herramientas newherram = new Herramientas("Hacha", "Madera");
                                         tools.add(newherram);
+                                        int madera = inventario.getMadera() - 5;
+                                        inventario.setMadera(madera);
                                     }else{
                                         System.out.println("No tiene suficientes materiales");
                                     }
@@ -101,6 +103,10 @@ public class Minecraft {
                                     if(inventario.getMadera() >= 2 && inventario.getPiedra() >= 3){
                                         Herramientas newherram = new Herramientas("Hacha", "Piedra");
                                         tools.add(newherram);
+                                        int madera = inventario.getMadera() - 2;
+                                        inventario.setMadera(madera);
+                                        int piedra = inventario.getPiedra();
+                                        inventario.setPiedra(piedra);
                                     }else{
                                         System.out.println("No tiene suficientes materiales");
                                     }
@@ -109,6 +115,10 @@ public class Minecraft {
                                     if(inventario.getMadera() >= 2 && inventario.getHierro() >= 3){
                                         Herramientas newherram = new Herramientas("Hacha", "Hierro");
                                         tools.add(newherram);
+                                        int madera = inventario.getMadera() - 2;
+                                        inventario.setMadera(madera);
+                                        int hierro = inventario.getHierro() - 2;
+                                        inventario.setMadera(hierro);
                                     }else{
                                         System.out.println("No tiene suficientes materiales");
                                     }
@@ -117,6 +127,10 @@ public class Minecraft {
                                     if(inventario.getMadera() >= 2 && inventario.getDiamante() >= 3){
                                         Herramientas newherram = new Herramientas("Hacha", "Diamante");
                                         tools.add(newherram);
+                                        int madera = inventario.getMadera() - 2;
+                                        inventario.setMadera(madera);
+                                        int diamante = inventario.getMadera() - 3;
+                                        inventario.setMadera(diamante);
                                     }else{
                                         System.out.println("No tiene suficientes materiales");
                                     }
@@ -194,7 +208,63 @@ public class Minecraft {
                     }
                     break;
                 case 6:
-                    
+                    if(inventario.objeto_actual.contains("Hacha")){
+                        int piedra = inventario.getPiedra();
+                        piedra += 1;
+                        inventario.setPiedra(piedra);
+                        System.out.println("\nConsiguio 1 de piedra");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Madera")){
+                        int piedra = inventario.getPiedra();
+                        piedra += 2;
+                        inventario.setPiedra(piedra);
+                        System.out.println("\nConsiguio 2 de piedra");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Piedra")){
+                        int piedra = inventario.getPiedra();
+                        piedra += 3;
+                        inventario.setPiedra(piedra);
+                        System.out.println("\nConsiguio 3 de piedra");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Hierro")){
+                        int piedra = inventario.getPiedra();
+                        piedra += 4;
+                        inventario.setPiedra(piedra);
+                        System.out.println("\nConsiguio 4 de piedra");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Diamante")){
+                        int piedra = inventario.getPiedra();
+                        piedra += 5;
+                        inventario.setPiedra(piedra);
+                        System.out.println("\nConsiguio 5 de piedra");
+                    }
+                    break;
+                case 7:
+                    if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Piedra")){
+                        int hierro = inventario.getHierro();
+                        hierro += 3;
+                        inventario.setPiedra(hierro);
+                        System.out.println("\nConsiguio 3 de hierro");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Hierro")){
+                        int hierro = inventario.getHierro();
+                        hierro += 4;
+                        inventario.setPiedra(hierro);
+                        System.out.println("\nConsiguio 4 de hierro");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Diamante")){
+                        int hierro = inventario.getPiedra();
+                        hierro += 5;
+                        inventario.setPiedra(hierro);
+                        System.out.println("\nConsiguio 5 de hierro");
+                    }
+                    break;
+                case 8:
+                    if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Hierro")){
+                        int diamante = inventario.getDiamante();
+                        diamante += 4;
+                        inventario.setPiedra(diamante);
+                        System.out.println("\nConsiguio 4 de diamante");
+                    }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Diamante")){
+                        int diamante = inventario.getDiamante();
+                        diamante += 5;
+                        inventario.setPiedra(diamante);
+                        System.out.println("\nConsiguio 5 de diamante");
+                    }
                     break;
             }
         }
