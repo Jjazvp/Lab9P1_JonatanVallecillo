@@ -7,11 +7,12 @@ public class Lab9_P1_JonatanVallecillo {
     
     static Scanner leer = new Scanner(System.in);
     static ArrayList <Herramientas> tools = new ArrayList <Herramientas>();
+    static Inventario inventario = new Inventario("Mano", 0, 0, 0, 0);
 
     public static void main(String[] args) {
         Herramientas herram = new Herramientas ("Mano", "mano");
         tools.add(herram);
-        Minecraft minecraft = new Minecraft(tools);
+        Minecraft minecraft = new Minecraft(tools, inventario);
         int val = 1;
         int opcion = 0;
         while (val == 1){
