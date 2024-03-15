@@ -35,6 +35,7 @@ public class Lab9_P1_JonatanVallecillo {
                     minecraft.play();
                     break;
                 case 2:
+                    val = 0;
                     break;
             }
         }

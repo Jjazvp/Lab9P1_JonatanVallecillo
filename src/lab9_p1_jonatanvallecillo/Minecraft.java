@@ -31,7 +31,7 @@ public class Minecraft {
                         + "5. Talar arbol\n"
                         + "6. Picar piedra\n"
                         + "7. picar hierro\n"
-                        + "8. Picaar diamante\n"
+                        + "8. Picar diamante\n"
                         + "Seleccione: ");
                 opcion = leer.nextInt(); 
                 if(opcion >= 0 && opcion < 9){
@@ -42,6 +42,9 @@ public class Minecraft {
             }
 
             switch(opcion){
+                case 0:
+                    jugar = 0;
+                    break;
                 case 1:
                     inventario.listar(tools);
                     break;
@@ -53,9 +56,148 @@ public class Minecraft {
                     inventario.obtenerNombreObjeto(tools);
                     break;
                 case 4:
+                    int val = 1;
+                    int opcion2 = 0;
+                    while(val == 1){
+                        System.out.print("\n1. Crear hacha\n"
+                            + "2. Crear pico\n"
+                            + "Seleccione: ");
+                        opcion2 = leer.nextInt();
+                        if(opcion2> 0 && opcion2 < 3){
+                            val = 0;
+                        }else{
+                            System.out.println("ERROR. Intente de nuevo");
+                        }
+                    }
+                    
+                    switch(opcion2){
+                        case 1:
+                            int val1 = 1;
+                            int opcion1 = 0;
+                            while(val1 == 1){
+                                System.out.print("\n1. Madera\n"
+                                    + "2. Piedra\n"
+                                    + "3. Hierro\n"
+                                    + "4. Diamante\n"
+                                    + "Seleccione: ");
+                                opcion1 = leer.nextInt();
+                                if(opcion1 > 0 && opcion1 < 5){
+                                    val1 = 0;
+                                }else{
+                                    System.out.println("ERROR. Intente de nuevo.");
+                                }
+                            }
+                            
+                            switch(opcion1){
+                                case 1:
+                                    if(inventario.getMadera() >= 5){
+                                        Herramientas newherram = new Herramientas("Hacha", "Madera");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                                case 2:
+                                    if(inventario.getMadera() >= 2 && inventario.getPiedra() >= 3){
+                                        Herramientas newherram = new Herramientas("Hacha", "Piedra");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                                case 3:
+                                    if(inventario.getMadera() >= 2 && inventario.getHierro() >= 3){
+                                        Herramientas newherram = new Herramientas("Hacha", "Hierro");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                                case 4:
+                                    if(inventario.getMadera() >= 2 && inventario.getDiamante() >= 3){
+                                        Herramientas newherram = new Herramientas("Hacha", "Diamante");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            val1 = 1;
+                            opcion1 = 0;
+                            while(val == 1){
+                                System.out.print("\n1. Madera\n"
+                                    + "2. Piedra\n"
+                                    + "3. Hierro\n"
+                                    + "4. Diamante\n"
+                                    + "Seleccione");
+                                opcion1 = leer.nextInt();
+                                if(opcion1 > 0 && opcion1 < 5){
+                                    val = 0;
+                                }
+                            }
+                            
+                            switch(opcion1){
+                                case 1:
+                                    if(inventario.getMadera() >= 5){
+                                        Herramientas newherram = new Herramientas("Pico", "Madera");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                                case 2:
+                                    if(inventario.getMadera() >= 2 && inventario.getPiedra() >= 3){
+                                        Herramientas newherram = new Herramientas("Pico", "Piedra");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                                case 3:
+                                    if(inventario.getMadera() >= 2 && inventario.getHierro() >= 3){
+                                        Herramientas newherram = new Herramientas("Pico", "Hierro");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                                case 4:
+                                    if(inventario.getMadera() >= 2 && inventario.getDiamante() >= 3){
+                                        Herramientas newherram = new Herramientas("Pico", "Diamante");
+                                        tools.add(newherram);
+                                    }else{
+                                        System.out.println("No tiene suficientes materiales");
+                                    }
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
+                case 5:
+                    if(inventario.objeto_actual.equals("Mano")){
+                        int madera = inventario.getMadera();
+                        madera += 1;
+                        inventario.setMadera(madera);
+                        System.out.println("\nConsiguio 1 de madera");
+                    }else if(inventario.objeto_actual.contains("Pico")){
+                        int madera = inventario.getMadera();
+                        madera += 2;
+                        inventario.setMadera(madera);
+                        System.out.println("\nConsiguio 1 de madera");
+                    }else if(inventario.objeto_actual.contains("Hacha")){
+                        int madera = inventario.getMadera();
+                        madera += 3;
+                        inventario.setMadera(madera);
+                        System.out.println("\nConsiguio 1 de madera");
+                    }
+                    break;
+                case 6:
                     
                     break;
             }
         }
+        System.out.println();
     }
 }

@@ -72,7 +72,7 @@ public class Inventario {
     
     
     public void listar(ArrayList<Herramientas> tools){
-        int cont = 0;
+        int cont = 1;
         System.out.println();
         for(int i = 0; i < tools.size() + 5; i++){
             if(i == 0){
@@ -84,12 +84,11 @@ public class Inventario {
             }else if(i == 3){
                 System.out.println(i+". Diamante: "+diamante);
             }else{
-                if(i != (tools.size()+5) - 1 && i != tools.size() + 5 - 2){
+                if(i == (tools.size()+2)){
                     Herramientas herram = new Herramientas();
-                    herram = tools.get(cont);
-                    cont ++;
+                    herram = tools.get(0);
                     System.out.println((i-1)+". "+herram.getNombre()+": "+herram.getMaterial());
-                }else if(i == (tools.size()+5) - 1){
+                }else if(i == (tools.size()+4)){
                     System.out.println(i+". Objeto equipado: "+objeto_actual);
                 }else{
                     Herramientas herram = new Herramientas();
@@ -176,7 +175,7 @@ public class Inventario {
                     }
                 }else{
                     herram = tools.get(seleccion - 4);
-                objeto_actual = herram.getNombre();
+                objeto_actual = herram.getNombre()+herram.getMaterial();
                 }
                 
                 break;
