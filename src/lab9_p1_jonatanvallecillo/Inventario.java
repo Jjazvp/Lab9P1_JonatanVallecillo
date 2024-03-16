@@ -162,7 +162,7 @@ public class Inventario {
                 while(val2 == 1){
                     System.out.print("\nSeleccione el objeto: ");
                     seleccion = leer.nextInt();
-                    if(seleccion >= 0 && seleccion < (tools.size()+5) - 1 && seleccion != 4){
+                    if(seleccion >= 0 && seleccion < (tools.size() + 3)){
                         val2 = 0;
                     }
                 }
@@ -178,7 +178,7 @@ public class Inventario {
                         objeto_actual = "Diamante";
                     }
                 }else{
-                    herram = tools.get(seleccion - 4);
+                    herram = tools.get(seleccion - 3);
                     objeto_actual = herram.getNombre()+herram.getMaterial();
                 }
                 

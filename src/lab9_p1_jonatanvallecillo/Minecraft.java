@@ -140,7 +140,7 @@ public class Minecraft {
                         case 2:
                             val1 = 1;
                             opcion1 = 0;
-                            while(val == 1){
+                            while(val1 == 1){
                                 System.out.print("\n1. Madera\n"
                                     + "2. Piedra\n"
                                     + "3. Hierro\n"
@@ -148,7 +148,7 @@ public class Minecraft {
                                     + "Seleccione");
                                 opcion1 = leer.nextInt();
                                 if(opcion1 > 0 && opcion1 < 5){
-                                    val = 0;
+                                    val1 = 0;
                                 }
                             }
                             
@@ -205,6 +205,8 @@ public class Minecraft {
                         madera += 3;
                         inventario.setMadera(madera);
                         System.out.println("\nConsiguio 1 de madera");
+                    }else{
+                        System.out.println("\nCambie de material");
                     }
                     break;
                 case 6:
@@ -233,37 +235,43 @@ public class Minecraft {
                         piedra += 5;
                         inventario.setPiedra(piedra);
                         System.out.println("\nConsiguio 5 de piedra");
+                    }else{
+                        System.out.println("\nCambie de material");
                     }
                     break;
                 case 7:
                     if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Piedra")){
                         int hierro = inventario.getHierro();
                         hierro += 3;
-                        inventario.setPiedra(hierro);
+                        inventario.setHierro(hierro);
                         System.out.println("\nConsiguio 3 de hierro");
                     }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Hierro")){
                         int hierro = inventario.getHierro();
                         hierro += 4;
-                        inventario.setPiedra(hierro);
+                        inventario.setHierro(hierro);
                         System.out.println("\nConsiguio 4 de hierro");
                     }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Diamante")){
-                        int hierro = inventario.getPiedra();
+                        int hierro = inventario.getHierro();
                         hierro += 5;
-                        inventario.setPiedra(hierro);
+                        inventario.setHierro(hierro);
                         System.out.println("\nConsiguio 5 de hierro");
+                    }else{
+                        System.out.println("\nCambie de material");
                     }
                     break;
                 case 8:
                     if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Hierro")){
                         int diamante = inventario.getDiamante();
                         diamante += 4;
-                        inventario.setPiedra(diamante);
+                        inventario.setDiamante(diamante);
                         System.out.println("\nConsiguio 4 de diamante");
                     }else if((inventario.objeto_actual.contains("Pico") || inventario.objeto_actual.contains("Hacha")) && inventario.objeto_actual.contains("Diamante")){
                         int diamante = inventario.getDiamante();
                         diamante += 5;
-                        inventario.setPiedra(diamante);
+                        inventario.setDiamante(diamante);
                         System.out.println("\nConsiguio 5 de diamante");
+                    }else{
+                        System.out.println("\nCambie de material");
                     }
                     break;
             }
